@@ -9,19 +9,6 @@ const App = () => {
     <Router>
       <Switch>
         <Route exact path = "/home" component = { Home } />
-        {/* <Route 
-            exact 
-            path = "/user/:id"  
-            render = { props => <User {...props} setViewer={setViewer}  />}
-        />
-        <Route exact path = "/host" component = { Host } />
-        <Route exact path = "/listing/:id" component = { Listing } />
-        <Route exact path = "/listings/:location?" component = { Listings } />
-        <Route 
-          exact 
-          path = "/login" 
-          render = { props => <Login {...props} setViewer={setViewer} /> } 
-        /> */}
         <Route component ={NotFound} />
       </Switch>
     </Router>
