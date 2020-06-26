@@ -39,7 +39,8 @@
   "dependencies": {
     "axios": "^0.19.2",
     "fs": "0.0.1-security",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "react-table": "6.8.2"
   },
   "proxy": "http://localhost:3000"
 }

@@ -16,11 +16,23 @@ module.exports = {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
       {
-        test: /\.css$/,
+        test: /\.global.css$/,
         exclude: /node_modules/,
-        use: ["style-loader", "css-loader"],
+        use: [{
+          loader: 'style-loader',
+        }, {
+          loader: 'css-loader',
+        }],
       },
-    ],
+      {
+        test: /^((?!\.global).)*\.css/,
+        use: [{
+          loader: 'style-loader',
+        }, {
+          loader: 'css-loader?modules',
+        }],
+      }
+    ]
   },
 	devServer: { 
 		historyApiFallback: true,
