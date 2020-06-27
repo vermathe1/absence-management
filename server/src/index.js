@@ -20,10 +20,27 @@ const mount = (app) => {
       .catch((err) => res.send(err));
   });
   app.get('/', (req, res) => {
-    helper
+    if (req.query !== {}){
+      if(req.query.userId !== undefined){
+        helper
+          .getLeaveDetails({userId:req.query.userId})
+          .then((data) => res.send(data))
+          .catch((err) => res.send(err));
+      }
+      if(req.query.startDate !== undefined && req.query.endDate !== undefined){
+        helper
+          .getLeaveDetails( { startDate: req.query.startDate, endDate:req.query.endDate } )
+          .then((data) => res.send(data))
+          .catch((err) => res.send(err));
+      }
+    }else{
+      helper
       .generateICSFile()
       .then((data) => helper.downlaodFile(data,res))
       .catch((err) => res.send(err));
+    }
+   
+    
   });
 };
 

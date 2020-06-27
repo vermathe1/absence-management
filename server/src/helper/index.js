@@ -16,7 +16,6 @@ const getEvents = async() => {
   })
 }
 
-
 const getCombinedResult = (members, absenties) => {
   return absenties.reduce((acc, absentInfo) => {
     let userdetails = members.filter((mem) => mem.userId === absentInfo.userId);
@@ -26,8 +25,8 @@ const getCombinedResult = (members, absenties) => {
   }, []);
 };
 
-const getLeaveDetails = () => {
-  return Promise.all([api.getMembers(), api.getAbsences()])
+const getLeaveDetails = (params={}) => {
+  return Promise.all([api.getMembers(params), api.getAbsences(params)])
     .then(([members, leaves]) => getCombinedResult(members, leaves))
     .catch((err) => err);
 };
