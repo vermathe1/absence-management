@@ -1,17 +1,13 @@
 import React from "react";
-import axios from "axios";
 import  ReactTable from 'react-table';
 import 'react-table/react-table.css'
+import { useState } from "react"
+import { useActiveTab } from '../customHooks'
+import { Tab } from '../commonComponents'
 
 export const Home = () => {
-  const [tableinfo, setTableInfo] = React.useState([]);
-
-  React.useEffect(() => {
-    axios
-      .get(`http://localhost:3000/getLeavesList`)
-      .then((response) => setTableInfo(response.data));
-  }, []);
-
+  const [activeTab, setActiveTab] = React.useState('TotalList');
+   const tableinfo =  useActiveTab(activeTab);
   const columns = [
     {
       Header: "Name",
@@ -63,15 +59,21 @@ export const Home = () => {
       sortable: false,
     },
   ];
+  
   return (
-   <ReactTable
-      columns = {columns}
-      data = {tableinfo}
-      defaultPageSize ={10}
-      noDataText = {"Please Wait.."}
-      filterable
-      pivotBy={['userId']}
-    >
-    </ReactTable> 
+    
+    <div>
+      <Tab headings={["TotalList","Vacation","Sickness"]} onTabClick={(tab)=>setActiveTab(tab)}/>
+      <ReactTable
+        columns = {columns}
+        data = {tableinfo}
+        defaultPageSize ={10}
+        noDataText = {"Please Wait.."}
+        filterable
+        pivotBy={['userId']}
+      >
+      </ReactTable> 
+    </div>
+  
   );
 };
