@@ -20,7 +20,8 @@ const mount = (app) => {
       .catch((err) => res.send(err));
   });
   app.get('/', (req, res) => {
-    if (req.query !== {}){
+  
+    if (Object.keys(req.query).length !== 0){
       if(req.query.userId !== undefined){
         helper
           .getLeaveDetails({userId:req.query.userId})
@@ -39,8 +40,6 @@ const mount = (app) => {
       .then((data) => helper.downlaodFile(data,res))
       .catch((err) => res.send(err));
     }
-   
-    
   });
 };
 
