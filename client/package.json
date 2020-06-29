@@ -38,8 +38,10 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "date-fns": "^2.14.0",
     "fs": "0.0.1-security",
     "path": "^0.12.7",
+    "react-datepicker": "^3.0.0",
     "react-table": "6.8.2"
   },
   "proxy": "http://localhost:3000"

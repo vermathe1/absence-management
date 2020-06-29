@@ -1,0 +1,32 @@
+.homeSection{
+  display: flex;
+  padding: 10px;
+}
+.tabSection{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.calendarSection{
+  display: flex;
+  flex-direction: column;
+}
+.tab{
+  padding:  30px 0 30px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  border: 1px solid #AAA;
+  background: #ECECEC;
+
+}
+.childTab{
+  border: 1px solid #AAA;
+  background:#DDE;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  margin: 10px;
+}
