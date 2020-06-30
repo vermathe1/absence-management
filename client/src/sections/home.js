@@ -1,13 +1,14 @@
 import React from 'react';
-import ReactTable, { actions } from 'react-table';
-import 'react-table/react-table.css';
+import ReactTable from 'react-table';
 import { useState } from 'react';
 import { useActiveTab } from '../customHooks';
 import { Tab } from '../commonComponents';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import styles from '../styles/home.module.css';
+import { columns } from '../tableColumns'
+import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import 'react-table/react-table.css';
 
 export const Home = () => {
   const [activeTab, setActiveTab] = React.useState('TotalList');
@@ -15,57 +16,7 @@ export const Home = () => {
   const [endDate, setEndDate] = React.useState(new Date());
   const [dateCheckbox, setdateCheckbox] = React.useState(false);
   const tableinfo = useActiveTab(activeTab, dateCheckbox, startDate, endDate);
-  const columns = [
-    {
-      Header: 'Name',
-      accessor: 'name'
-    },
-    {
-      Header: 'User Id',
-      accessor: 'userId'
-    },
-    {
-      Header: 'Start Date',
-      accessor: 'startDate',
-      filterable: false
-    },
-    {
-      Header: 'End Date',
-      accessor: 'endDate',
-      filterable: false
-    },
-    {
-      Header: 'Type',
-      accessor: 'type',
-      sortable: false,
-      filterable: false
-    },
-    {
-      Header: 'Crew Id',
-      accessor: 'crewId',
-      filterable: false,
-      sortable: false
-    },
-    {
-      Header: 'Member Note',
-      accessor: 'memberNote',
-      sortable: false,
-      filterable: false,
-      sortable: false
-    },
-    {
-      Header: 'Confirmed At',
-      accessor: 'confirmedAt',
-      filterable: false,
-      sortable: false
-    },
-    {
-      Header: 'Created At',
-      accessor: 'createdAt',
-      filterable: false,
-      sortable: false
-    }
-  ];
+
   const downlaodICAL = () => {
     axios({
       url: 'http://localhost:3000/',
