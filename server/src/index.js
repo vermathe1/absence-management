@@ -13,12 +13,6 @@ const mount = (app) => {
       .then((data) => res.send(data))
       .catch((err) => res.send(err));
   });
-  app.get('/getCalendarEvents', (req, res) => {
-    helper
-      .generateICSFile()
-      .then((data) => helper.downlaodFile(data,res))
-      .catch((err) => res.send(err));
-  });
   app.get('/', (req, res) => {
   
     if (Object.keys(req.query).length !== 0){
