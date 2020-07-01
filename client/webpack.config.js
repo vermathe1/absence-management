@@ -17,7 +17,7 @@ module.exports = {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader",
       options: {
-        presets: ['env'],
+        presets: ['@babel/preset-env'],
         plugins: ["transform-object-rest-spread"]
     }
      },
