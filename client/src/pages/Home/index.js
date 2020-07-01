@@ -1,13 +1,10 @@
-import React from "./node_modules/react";
-import { useState } from "./node_modules/react";
+import React from "react";
+import { useState } from "react";
 import { useActiveTab } from "../../customHooks";
-import axios from "./node_modules/axios";
+import axios from "axios";
 import styles from "../../styles/home.module.css";
 import { columns } from "./tableColumns";
-import { Table } from "./components/Table";
-import { DownlaodIcalButton } from "./components/DownloadIcalButton";
-import { Filter } from "./components/Filter";
-import { DateRange } from "./components/DateRange";
+import { Table, DownlaodIcalButton, Filter, DateRange } from "./components";
 import { Input } from "../../commonComponents";
 
 export const Home = () => {
@@ -56,7 +53,9 @@ export const Home = () => {
             Start Date :{" "}
             <DateRange
               selected={startDate}
-              setDate={(date) => setStartDate(date)}
+              setDate={(date) => {
+                setStartDate(date);
+              }}
             />{" "}
           </div>
           <div>

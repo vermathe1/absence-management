@@ -11,10 +11,9 @@ export const Button = ({ onClick, text }) => {
   );
 };
 
-export const Input = ({ type, defaultChecked, onChange }) => {
-  <input type={type} defaultChecked={defaultChecked} onChange={onChange} />;
-};
-
-export const DateSelector = ({ startDate, setDate }) => {
-  return <DatePicker selected={startDate} onChange={(date) => setDate(date)} />;
+export const Input = ({ type, defaultChecked, onChange }) => (
+  <input type={type} defaultChecked={defaultChecked} onChange={onChange} />
+);
+export const DateSelector = ({ selected, setDate }) => {
+  return <DatePicker selected={selected} onChange={(date) => setDate(date)} />;
 };
