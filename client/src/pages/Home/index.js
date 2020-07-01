@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useActiveTab } from "../../customHooks";
+import { useActiveTab } from "../../useActiveTab";
 import axios from "axios";
 import styles from "../../styles/home.module.css";
 import { columns } from "./tableColumns";
@@ -37,7 +37,7 @@ export const Home = () => {
   return (
     <div className={styles.main}>
       <header className={styles.header}>
-        <p>Absence Management Tool</p>
+        <p><b>Absence Management Tool</b></p>
       </header>
       <section className={styles.tabsection}>
         <section className={styles.calendarSection}>

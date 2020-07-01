@@ -3,16 +3,10 @@ import { Button } from "../../../commonComponents";
 import styles from "../../../styles/home.module.css";
 
 export const Filter = ({ headings, activeTab, onTabClick }) => {
-  return (
-    <Tab
-      headings={headings}
-      active={activeTab}
-      onTabClick={(tab) => onTabClick(tab)}
-    />
-  );
+  return <Tab headings={headings} active={activeTab} onTabClick={onTabClick} />;
 };
 
-const Tab = ({ headings, active, onTabClick }) => {
+export const Tab = ({ headings, active, onTabClick }) => {
   const handleClick = (heading) => {
     onTabClick(heading);
   };

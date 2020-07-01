@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Filter /> should render correctly 1`] = `
+<ul
+  className="tab"
+>
+  <li
+    className="childTab activeTab"
+    onClick={[Function]}
+  >
+     
+    <a
+      className="nodecoration"
+      href="#"
+    >
+      a
+    </a>
+     
+  </li>
+  <li
+    className="childTab"
+    onClick={[Function]}
+  >
+     
+    <a
+      className="nodecoration"
+      href="#"
+    >
+      b
+    </a>
+     
+  </li>
+  <li
+    className="childTab"
+    onClick={[Function]}
+  >
+     
+    <a
+      className="nodecoration"
+      href="#"
+    >
+      c
+    </a>
+     
+  </li>
+</ul>
+`;
+
+exports[`<Tab /> should render correctly 1`] = `
+<ul
+  className="tab"
+>
+  <li
+    className="childTab activeTab"
+    onClick={[Function]}
+  >
+     
+    <a
+      className="nodecoration"
+      href="#"
+    >
+      a
+    </a>
+     
+  </li>
+  <li
+    className="childTab"
+    onClick={[Function]}
+  >
+     
+    <a
+      className="nodecoration"
+      href="#"
+    >
+      b
+    </a>
+     
+  </li>
+  <li
+    className="childTab"
+    onClick={[Function]}
+  >
+     
+    <a
+      className="nodecoration"
+      href="#"
+    >
+      c
+    </a>
+     
+  </li>
+</ul>
+`;
