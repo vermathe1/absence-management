@@ -36,47 +36,53 @@ export const Home = () => {
 
   return (
     <div className={styles.main}>
-      <header className={styles.header}>Absence Management Tool</header>
+      <header className={styles.header}>
+        <p>Absence Management Tool</p>
+      </header>
       <section className={styles.tabsection}>
-        <div className={styles.downlaodSection}>
-          <DownlaodIcalButton
-            onClick={downlaodICAL}
-            text={"Downlaod ICALfile"}
-          />
+        <section className={styles.calendarSection}>
+          <div>
+            <div>
+              <p>Start Date : </p>
+              <DateRange
+                selected={startDate}
+                setDate={(date) => {
+                  setStartDate(date);
+                }}
+              />{" "}
+            </div>
+            <div>
+              <p>End Date : </p>
+              <DateRange
+                selected={endDate}
+                setDate={(date) => setEndDate(date)}
+              />
+            </div>
+            <div className={styles.checkbox}>
+              <Input
+                type="checkbox"
+                defaultChecked={dateCheckbox}
+                onChange={handleChangeChk}
+              />
+              Consider Date Range
+            </div>
+          </div>
+        </section>
+      </section>
+      <section className={styles.contentSection}>
+        <div className={styles.filter}>
           <Filter
             headings={["TotalList", "Vacation", "Sickness"]}
             activeTab={activeTab}
             onTabClick={(tab) => setActiveTab(tab)}
           />
+          <div className={styles.downloadBtn}>
+            <DownlaodIcalButton
+              onClick={downlaodICAL}
+              text={"Downlaod ICALfile"}
+            />
+          </div>
         </div>
-        <section className={styles.calendarSection}>
-          <div>
-            Start Date :{" "}
-            <DateRange
-              selected={startDate}
-              setDate={(date) => {
-                setStartDate(date);
-              }}
-            />{" "}
-          </div>
-          <div>
-            End Date :{" "}
-            <DateRange
-              selected={endDate}
-              setDate={(date) => setEndDate(date)}
-            />
-          </div>
-          <div>
-            <Input
-              type="checkbox"
-              defaultChecked={dateCheckbox}
-              onChange={handleChangeChk}
-            />
-            Consider Date Range
-          </div>
-        </section>
-      </section>
-      <section className={styles.contentSection}>
         <Table
           columns={columns}
           data={tableinfo}
