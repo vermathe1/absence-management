@@ -15,16 +15,12 @@ module.exports = {
   devtool: "source-map",
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
-      {
-        test: /\.global.css$/,
-        exclude: /node_modules/,
-        use: [{
-          loader: 'style-loader',
-        }, {
-          loader: 'css-loader',
-        }],
-      },
+      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader",
+      options: {
+        presets: ['env'],
+        plugins: ["transform-object-rest-spread"]
+    }
+     },
       {
         test: /^((?!\.global).)*\.css/,
         use: [{

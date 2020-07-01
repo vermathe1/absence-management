@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useCallback, useEffect, useReducer } from 'react';
 import { format } from 'date-fns';
 
+const API_URL = `http://localhost:3000`;
+
 const reducerfunction = (state, action) => {
   switch (action.type) {
     case 'TotalList': {
@@ -10,14 +12,14 @@ const reducerfunction = (state, action) => {
       };
     }
     case 'Vacation': {
-      return Object.assign({}, state, {
+      return { ...state, 
         [action.type]: state.TotalList.filter(info => info.type === 'vacation')
-      });
+      };
     }
     case 'Sickness': {
-      return Object.assign({}, state, {
+      return { ...state,
         [action.type]: state.TotalList.filter(info => info.type === 'sickness')
-      });
+      };
     }
     default: {
       return state;
@@ -32,9 +34,9 @@ export const useActiveTab = (activeTab, dateCheckbox, startDate, endDate) => {
   useEffect(() => {
     let url;
     if (dateCheckbox) {
-      url = `http://localhost:3000/?startDate=${formatedStartdate}&endDate=${formatedEnddate}`;
+      url = `${API_URL}/?startDate=${formatedStartdate}&endDate=${formatedEnddate}`;
     } else {
-      url = `http://localhost:3000/getLeavesList`;
+      url = `${API_URL}/getLeavesList`;
     }
 
     if (activeTab === 'TotalList') {
