@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Home } from './sections/home';
+import { Home } from './sections/Home';
 import { NotFound } from './sections/notfound';
 
 const App = () => {
