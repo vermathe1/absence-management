@@ -15,26 +15,24 @@ module.exports = {
   devtool: "source-map",
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader",
-      options: {
-        presets: ['@babel/preset-env'],
-        plugins: ["transform-object-rest-spread"]
-    }
-     },
+      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
       {
         test: /^((?!\.global).)*\.css/,
-        use: [{
-          loader: 'style-loader',
-        }, {
-          loader: 'css-loader?modules',
-        }],
-      }
-    ]
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader?modules",
+          },
+        ],
+      },
+    ],
   },
-	devServer: { 
-		historyApiFallback: true,
-		inline: false,
-		contentBase: "./dist"
-	},
+  devServer: {
+    historyApiFallback: true,
+    inline: false,
+    contentBase: "./dist",
+  },
   plugins: [HTMLWebpackPluginConfig],
 };
