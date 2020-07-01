@@ -6,6 +6,7 @@ import styles from "../../styles/home.module.css";
 import { columns } from "./tableColumns";
 import { Table, DownlaodIcalButton, Filter, DateRange } from "./components";
 import { Input } from "../../commonComponents";
+import { config } from "../../config";
 
 export const Home = () => {
   const [activeTab, setActiveTab] = React.useState("TotalList");
@@ -16,7 +17,7 @@ export const Home = () => {
 
   const downlaodICAL = () => {
     axios({
-      url: "http://localhost:3000/",
+      url: config.API_URL_BASE,
       method: "GET",
       responseType: "blob",
     }).then((response) => {

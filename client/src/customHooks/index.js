@@ -1,8 +1,7 @@
 import axios from 'axios';
 import React, { useCallback, useEffect, useReducer } from 'react';
 import { format } from 'date-fns';
-
-const API_URL = `http://localhost:3000`;
+import { config } from "../config"
 
 const reducerfunction = (state, action) => {
   switch (action.type) {
@@ -34,9 +33,9 @@ export const useActiveTab = (activeTab, dateCheckbox, startDate, endDate) => {
   useEffect(() => {
     let url;
     if (dateCheckbox) {
-      url = `${API_URL}/?startDate=${formatedStartdate}&endDate=${formatedEnddate}`;
+      url = `${config.API_URL_BASE}/?startDate=${formatedStartdate}&endDate=${formatedEnddate}`;
     } else {
-      url = `${API_URL}/getLeavesList`;
+      url = `${config.API_URL_BASE}/getLeavesList`;
     }
 
     if (activeTab === 'TotalList') {
